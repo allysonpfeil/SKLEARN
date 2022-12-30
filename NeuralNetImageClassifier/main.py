@@ -49,6 +49,8 @@ for ax, label in zip(axes, labels):
 X = np.array(data['data'])
 y = np.array(data['label'])
 
+y = np.flip(y)
+
 new_x = []
 
 for item in X:
@@ -59,6 +61,12 @@ for item in X:
 sgd_clf = SGDClassifier(random_state=42, max_iter=1000, tol=1e-3)
 sgd_clf.fit(new_x, y)
 
+
+
+y_pred = sgd_clf.predict(new_x)
+
+print(new_x)
+print(y_pred)
 
 
 
